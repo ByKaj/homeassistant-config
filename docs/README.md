@@ -1,7 +1,7 @@
 # Home Assistant Configuration
 ![Maintenance](https://img.shields.io/maintenance/yes/2020?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ByKaj/homeassistant-config?style=for-the-badge)
-[![GitHub](https://img.shields.io/github/license/ByKaj/homeassistant-config?style=for-the-badge)](LICENSE)
+[![GitHub](https://img.shields.io/github/license/ByKaj/homeassistant-config?style=for-the-badge)](/LICENSE)
 
 This is my configuration for Home Assistant (www.home-assistant.io).
 
