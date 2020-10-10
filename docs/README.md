@@ -97,7 +97,7 @@ deployment_key:
   - '-----BEGIN OPENSSH PRIVATE KEY-----'
   - b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
   - NhAAAAAwEAAQAAAgEAs+gC1QehlpEymiGPSnhVMwZZJi2nljLlu644G2h9tE7FVn2TG0XR
-    ...
+  - ...
   - KvxjOuF7exeHN2WaW2zkUE9oP6aeaCfSk6XxxAq9YQVQD6BjY83zQPNaB8mk/jmkHH1C6V
   - x/ph2cL0aoo1AAAAE2dpdGh1YkBrYWp2aXNzZXIubmwBAgMEBQYH
   - '-----END OPENSSH PRIVATE KEY-----'
