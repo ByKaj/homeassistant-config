@@ -3,10 +3,18 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/ByKaj/homeassistant-config?style=for-the-badge)
 [![GitHub](https://img.shields.io/github/license/ByKaj/homeassistant-config?style=for-the-badge)](/LICENSE)
 
-This is my configuration for Home Assistant (www.home-assistant.io).
+This is my configuration for [Home Assistant](https://www.home-assistant.io).
+
+- [Installation](#installation)
+	- [Prerequisites](#prerequisites)
+	- [SSH & Web Terminal configuration](#ssh--web-terminal-configuration)
+	- [Backup configuration to GitHub](#backup-configuration-to-github)
+	- [Git Pull configuration](#git-pull-configuration)
+- [License](#license)
+
 
 ## Installation
-Steps and information tailored to Home Assistant installed on HassOS.
+Steps and information tailored to a Home Assistant installation on HassOS.
 
 ### Prerequisites
 1. Installed Supervisor add-ons:
