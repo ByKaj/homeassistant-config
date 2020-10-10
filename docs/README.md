@@ -123,4 +123,4 @@ repeat:
 
 
 ## License
-[MIT](LICENSE)
+[MIT](/LICENSE)
