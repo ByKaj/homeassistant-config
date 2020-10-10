@@ -1,0 +1,1424 @@
+- id: '1596484678561'
+  name: 'Beneden: Sfeer'
+  entities:
+    light.gf_kitchen_hallspots_level:
+      brightness: 90
+      friendly_name: Halspots
+      icon: mdi:spotlight
+      node_id: 4
+      power_consumption: 4.7
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594109853697'
+      value_index: 0
+      value_instance: 1
+    light.gf_kitchen_table_level:
+      brightness: 77
+      friendly_name: Tafel
+      icon: mdi:ceiling-light
+      node_id: 6
+      power_consumption: 1.2
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594143408129'
+      value_index: 0
+      value_instance: 1
+    light.gf_kitchen_windows_level:
+      brightness: 103
+      friendly_name: Raamspots
+      icon: mdi:spotlight
+      node_id: 5
+      power_consumption: 18.2
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594126630913'
+      value_index: 0
+      value_instance: 1
+    light.gf_living_ceiling_back_level:
+      brightness: 52
+      friendly_name: Plafondlamp (achter)
+      icon: mdi:vanity-light
+      node_id: 2
+      power_consumption: 2.4
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594076299265'
+      value_index: 0
+      value_instance: 1
+    light.gf_living_ceiling_front_level:
+      friendly_name: Plafondlamp (voor)
+      icon: mdi:vanity-light
+      node_id: 3
+      power_consumption: 0
+      state: 'off'
+      supported_features: 33
+      value_id: '72057594093076481'
+      value_index: 0
+      value_instance: 1
+    light.gf_living_couch_left:
+      brightness: 77
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Bank (links)
+      hs_color:
+      - 35.503
+      - 66.275
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 185
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.506
+      - 0.411
+    light.gf_living_couch_right:
+      brightness: 77
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Bank (rechts)
+      hs_color:
+      - 35.503
+      - 66.275
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 185
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.506
+      - 0.411
+    light.gf_living_floor:
+      brightness: 145
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Vloer
+      hs_color:
+      - 35.503
+      - 66.275
+      icon: mdi:globe-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 185
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.506
+      - 0.411
+    zwave.gf_kitchen_hallspots:
+      application_version: Unknown
+      averageRequestRTT: 87
+      averageResponseRTT: 42
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Halspots: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 33
+      lastResponseRTT: 43
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 5
+      - 6
+      - 7
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 21
+      - 22
+      - 23
+      - 25
+      - 26
+      - 27
+      - 28
+      node_id: 4
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 39
+      receivedDups: 7
+      receivedTS: '2020-08-10 16:01:18:121 '
+      receivedUnsolicited: 10
+      retries: 0
+      sentCnt: 38
+      sentFailed: 0
+      sentTS: '2020-08-10 16:01:12:682 '
+      state: ready
+    zwave.gf_kitchen_table:
+      application_version: '3.05'
+      averageRequestRTT: 168
+      averageResponseRTT: 305
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Tafel: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 174
+      lastResponseRTT: 307
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 7
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 21
+      - 25
+      - 27
+      node_id: 6
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 84
+      receivedDups: 22
+      receivedTS: '2020-08-10 16:01:59:418 '
+      receivedUnsolicited: 33
+      retries: 0
+      sentCnt: 69
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:35:466 '
+      state: ready
+    zwave.gf_kitchen_windows:
+      application_version: Unknown
+      averageRequestRTT: 169
+      averageResponseRTT: 193
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Raamspots: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 73
+      lastResponseRTT: 144
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 3
+      - 4
+      - 6
+      - 7
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 20
+      - 21
+      - 23
+      - 25
+      node_id: 5
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 67
+      receivedDups: 9
+      receivedTS: '2020-08-10 15:59:42:333 '
+      receivedUnsolicited: 17
+      retries: 0
+      sentCnt: 70
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:36:130 '
+      state: ready
+    zwave.gf_living_ceiling_back:
+      application_version: Unknown
+      averageRequestRTT: 46
+      averageResponseRTT: 44
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Plafondlamp (achter): Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 30
+      lastResponseRTT: 45
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 3
+      - 4
+      - 6
+      - 7
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 21
+      - 24
+      - 25
+      - 26
+      - 27
+      node_id: 2
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 79
+      receivedDups: 25
+      receivedTS: '2020-08-10 15:59:42:573 '
+      receivedUnsolicited: 21
+      retries: 0
+      sentCnt: 70
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:36:374 '
+      state: ready
+    zwave.gf_living_ceiling_front:
+      application_version: Unknown
+      averageRequestRTT: 65
+      averageResponseRTT: 78
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Plafondlamp (voor): Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 78
+      lastResponseRTT: 93
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 4
+      - 5
+      - 6
+      - 7
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 21
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      node_id: 3
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 63
+      receivedDups: 14
+      receivedTS: '2020-08-10 15:59:29:366 '
+      receivedUnsolicited: 13
+      retries: 3
+      sentCnt: 69
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:29:272 '
+      state: ready
+  icon: mdi:heart-circle
+- id: '1596547058239'
+  name: 'Boven: Avondstand'
+  entities:
+    light.ff_bathroom_lighting_level:
+      brightness: 39
+      friendly_name: Verlichting
+      icon: mdi:spotlight-beam
+      node_id: 10
+      power_consumption: 5.4
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594210516993'
+      value_index: 0
+      value_instance: 1
+    light.ff_bedroom_bed_left:
+      brightness: 51
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Bed (links)
+      hs_color:
+      - 38.667
+      - 52.941
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.457
+      - 0.41
+    light.ff_bedroom_bed_right:
+      brightness: 51
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Bed (rechts)
+      hs_color:
+      - 38.667
+      - 52.941
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.457
+      - 0.41
+    light.ff_bedroom_ceiling_level:
+      friendly_name: Plafondlamp
+      icon: mdi:ceiling-light
+      node_id: 12
+      power_consumption: 0
+      state: 'off'
+      supported_features: 33
+      value_id: '72057594244071425'
+      value_index: 0
+      value_instance: 1
+    light.ff_bedroom_dressoir:
+      brightness: 51
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Dressoir
+      hs_color:
+      - 38.667
+      - 52.941
+      icon: mdi:lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.457
+      - 0.41
+    light.ff_guestroom_spots_level:
+      brightness: 129
+      friendly_name: Spots
+      icon: mdi:spotlight-beam
+      node_id: 11
+      power_consumption: 13.3
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594227294209'
+      value_index: 0
+      value_instance: 1
+    light.ff_hallway_ceiling_level:
+      brightness: 129
+      friendly_name: Plafondlamp
+      icon: mdi:ceiling-light
+      node_id: 17
+      power_consumption: 6.6
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594327957505'
+      value_index: 0
+      value_instance: 1
+    light.ff_hobbyroom_ceiling_level:
+      friendly_name: Plafondlamp
+      icon: mdi:spotlight-beam
+      node_id: 13
+      power_consumption: 0
+      state: 'off'
+      supported_features: 33
+      value_id: '72057594260848641'
+      value_index: 0
+      value_instance: 1
+    switch.ff_hobbyroom_lego_switch:
+      friendly_name: LEGO
+      icon: mdi:toggle-switch
+      node_id: 23
+      power_consumption: 0
+      state: 'off'
+      value_id: '72057594428604416'
+      value_index: 0
+      value_instance: 1
+    zwave.ff_bathroom_lighting:
+      application_version: Unknown
+      averageRequestRTT: 249
+      averageResponseRTT: 138
+      capabilities:
+      - listening
+      - beaming
+      - zwave_plus
+      - routing
+      friendly_name: 'Verlichting: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 117
+      lastResponseRTT: 169
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      node_id: 10
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 207
+      receivedDups: 30
+      receivedTS: '2020-08-06 00:10:07:462 '
+      receivedUnsolicited: 137
+      retries: 1
+      sentCnt: 99
+      sentFailed: 0
+      sentTS: '2020-08-06 00:10:01:999 '
+      state: ready
+    zwave.ff_bedroom_ceiling:
+      application_version: Unknown
+      averageRequestRTT: 38
+      averageResponseRTT: 43
+      capabilities:
+      - listening
+      - beaming
+      - zwave_plus
+      - routing
+      friendly_name: 'Plafondlamp: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 33
+      lastResponseRTT: 42
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 10
+      - 11
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 20
+      - 21
+      - 23
+      - 24
+      - 25
+      - 27
+      node_id: 12
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 135
+      receivedDups: 23
+      receivedTS: '2020-08-06 00:08:44:814 '
+      receivedUnsolicited: 66
+      retries: 0
+      sentCnt: 86
+      sentFailed: 0
+      sentTS: '2020-08-06 00:08:44:771 '
+      state: ready
+    zwave.ff_guestroom_spots:
+      application_version: Unknown
+      averageRequestRTT: 35
+      averageResponseRTT: 44
+      capabilities:
+      - listening
+      - beaming
+      - zwave_plus
+      - routing
+      friendly_name: 'Spots: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 30
+      lastResponseRTT: 45
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 10
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      node_id: 11
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 188
+      receivedDups: 28
+      receivedTS: '2020-08-06 00:08:50:863 '
+      receivedUnsolicited: 119
+      retries: 2
+      sentCnt: 96
+      sentFailed: 0
+      sentTS: '2020-08-06 00:08:45:313 '
+      state: ready
+    zwave.ff_hallway_ceiling:
+      application_version: Unknown
+      averageRequestRTT: 33
+      averageResponseRTT: 45
+      capabilities:
+      - listening
+      - beaming
+      - zwave_plus
+      - routing
+      friendly_name: 'Plafondlamp: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 30
+      lastResponseRTT: 46
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 18
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      node_id: 17
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 155
+      receivedDups: 28
+      receivedTS: '2020-08-06 00:08:51:850 '
+      receivedUnsolicited: 88
+      retries: 3
+      sentCnt: 95
+      sentFailed: 0
+      sentTS: '2020-08-06 00:08:45:397 '
+      state: ready
+    zwave.ff_hobbyroom_ceiling:
+      application_version: Unknown
+      averageRequestRTT: 38
+      averageResponseRTT: 52
+      capabilities:
+      - listening
+      - beaming
+      - zwave_plus
+      - routing
+      friendly_name: 'Plafondlamp: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 34
+      lastResponseRTT: 49
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 10
+      - 11
+      - 12
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 27
+      node_id: 13
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 125
+      receivedDups: 16
+      receivedTS: '2020-08-06 00:08:44:919 '
+      receivedUnsolicited: 63
+      retries: 1
+      sentCnt: 79
+      sentFailed: 0
+      sentTS: '2020-08-06 00:08:44:869 '
+      state: ready
+    zwave.ff_hobbyroom_lego:
+      application_version: '3.93'
+      averageRequestRTT: 203
+      averageResponseRTT: 607
+      capabilities:
+      - listening
+      - beaming
+      - zwave_plus
+      - routing
+      friendly_name: 'LEGO: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 170
+      lastResponseRTT: 301
+      manufacturer_name: Shenzhen Neo Electronics Co Ltd
+      max_baud_rate: 40000
+      neighbors:
+      - 3
+      - 4
+      - 5
+      - 10
+      - 11
+      - 12
+      - 13
+      - 15
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 24
+      node_id: 23
+      node_name: Shenzhen Neo Electronics Co Ltd Power plug 12A
+      product_name: Power plug 12A
+      query_stage: Complete
+      receivedCnt: 1297
+      receivedDups: 14
+      receivedTS: '2020-08-06 00:08:50:697 '
+      receivedUnsolicited: 1271
+      retries: 2
+      sentCnt: 39
+      sentFailed: 0
+      sentTS: '2020-08-06 00:08:43:613 '
+      state: ready
+  icon: mdi:power-sleep
+- id: '1596554136730'
+  name: 'Beneden: Thuiskomst'
+  entities:
+    light.gf_hallway_ceiling_level:
+      brightness: 152
+      friendly_name: Plafondlamp
+      icon: mdi:ceiling-light
+      node_id: 16
+      power_consumption: 3.4
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594311180289'
+      value_index: 0
+      value_instance: 1
+    light.gf_kitchen_hallspots_level:
+      brightness: 90
+      friendly_name: Halspots
+      icon: mdi:spotlight
+      node_id: 4
+      power_consumption: 4.7
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594109853697'
+      value_index: 0
+      value_instance: 1
+    light.gf_kitchen_table_level:
+      brightness: 77
+      friendly_name: Tafel
+      icon: mdi:ceiling-light
+      node_id: 6
+      power_consumption: 1.2
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594143408129'
+      value_index: 0
+      value_instance: 1
+    light.gf_kitchen_windows_level:
+      brightness: 103
+      friendly_name: Raamspots
+      icon: mdi:spotlight
+      node_id: 5
+      power_consumption: 18.2
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594126630913'
+      value_index: 0
+      value_instance: 1
+    light.gf_living_ceiling_back_level:
+      brightness: 52
+      friendly_name: Plafondlamp (achter)
+      icon: mdi:vanity-light
+      node_id: 2
+      power_consumption: 2.4
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594076299265'
+      value_index: 0
+      value_instance: 1
+    light.gf_living_ceiling_front_level:
+      friendly_name: Plafondlamp (voor)
+      icon: mdi:vanity-light
+      node_id: 3
+      power_consumption: 0
+      state: 'off'
+      supported_features: 33
+      value_id: '72057594093076481'
+      value_index: 0
+      value_instance: 1
+    light.gf_living_couch_left:
+      brightness: 77
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Bank (links)
+      hs_color:
+      - 35.503
+      - 66.275
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 185
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.506
+      - 0.411
+    light.gf_living_couch_right:
+      brightness: 77
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Bank (rechts)
+      hs_color:
+      - 35.503
+      - 66.275
+      icon: mdi:floor-lamp
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 185
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.506
+      - 0.411
+    light.gf_living_floor:
+      brightness: 145
+      effect: none
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Vloer
+      hs_color:
+      - 35.503
+      - 66.275
+      icon: mdi:globe-light
+      max_mireds: 500
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 185
+      - 85
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.506
+      - 0.411
+    light.ou_frontporch_door_level:
+      brightness: 203
+      friendly_name: Portiek
+      icon: mdi:outdoor-lamp
+      node_id: 15
+      power_consumption: 4.6
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594294403073'
+      value_index: 0
+      value_instance: 1
+    light.ou_terrace_wall_level:
+      brightness: 152
+      friendly_name: Terras
+      icon: mdi:outdoor-lamp
+      node_id: 14
+      power_consumption: 18.7
+      state: 'on'
+      supported_features: 33
+      value_id: '72057594277625857'
+      value_index: 0
+      value_instance: 1
+    zwave.gf_hallway_ceiling:
+      application_version: Unknown
+      averageRequestRTT: 54
+      averageResponseRTT: 57
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Plafondlamp: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 28
+      lastResponseRTT: 37
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 17
+      - 18
+      - 21
+      - 24
+      - 25
+      - 26
+      - 27
+      node_id: 16
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 85
+      receivedDups: 27
+      receivedTS: '2020-08-10 16:00:42:237 '
+      receivedUnsolicited: 32
+      retries: 1
+      sentCnt: 71
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:35:259 '
+      state: ready
+    zwave.gf_kitchen_hallspots:
+      application_version: Unknown
+      averageRequestRTT: 87
+      averageResponseRTT: 42
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Halspots: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 33
+      lastResponseRTT: 43
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 5
+      - 6
+      - 7
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 21
+      - 22
+      - 23
+      - 25
+      - 26
+      - 27
+      - 28
+      node_id: 4
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 39
+      receivedDups: 7
+      receivedTS: '2020-08-10 16:01:18:121 '
+      receivedUnsolicited: 10
+      retries: 0
+      sentCnt: 38
+      sentFailed: 0
+      sentTS: '2020-08-10 16:01:12:682 '
+      state: ready
+    zwave.gf_kitchen_table:
+      application_version: '3.05'
+      averageRequestRTT: 168
+      averageResponseRTT: 305
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Tafel: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 174
+      lastResponseRTT: 307
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 7
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 21
+      - 25
+      - 27
+      node_id: 6
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 83
+      receivedDups: 22
+      receivedTS: '2020-08-10 15:59:40:981 '
+      receivedUnsolicited: 32
+      retries: 0
+      sentCnt: 69
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:35:466 '
+      state: ready
+    zwave.gf_kitchen_windows:
+      application_version: Unknown
+      averageRequestRTT: 169
+      averageResponseRTT: 193
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Raamspots: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 73
+      lastResponseRTT: 144
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 3
+      - 4
+      - 6
+      - 7
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 20
+      - 21
+      - 23
+      - 25
+      node_id: 5
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 67
+      receivedDups: 9
+      receivedTS: '2020-08-10 15:59:42:333 '
+      receivedUnsolicited: 17
+      retries: 0
+      sentCnt: 70
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:36:130 '
+      state: ready
+    zwave.gf_living_ceiling_back:
+      application_version: Unknown
+      averageRequestRTT: 46
+      averageResponseRTT: 44
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Plafondlamp (achter): Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 30
+      lastResponseRTT: 45
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 3
+      - 4
+      - 6
+      - 7
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 21
+      - 24
+      - 25
+      - 26
+      - 27
+      node_id: 2
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 79
+      receivedDups: 25
+      receivedTS: '2020-08-10 15:59:42:573 '
+      receivedUnsolicited: 21
+      retries: 0
+      sentCnt: 70
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:36:374 '
+      state: ready
+    zwave.gf_living_ceiling_front:
+      application_version: Unknown
+      averageRequestRTT: 65
+      averageResponseRTT: 78
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Plafondlamp (voor): Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 78
+      lastResponseRTT: 93
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 4
+      - 5
+      - 6
+      - 7
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 21
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      node_id: 3
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 63
+      receivedDups: 14
+      receivedTS: '2020-08-10 15:59:29:366 '
+      receivedUnsolicited: 13
+      retries: 3
+      sentCnt: 69
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:29:272 '
+      state: ready
+    zwave.ou_frontporch_door:
+      application_version: Unknown
+      averageRequestRTT: 27
+      averageResponseRTT: 40
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Portiek: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 28
+      lastResponseRTT: 39
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 16
+      - 17
+      - 18
+      - 21
+      - 23
+      - 24
+      node_id: 15
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 59
+      receivedDups: 13
+      receivedTS: '2020-08-10 15:59:16:443 '
+      receivedUnsolicited: 14
+      retries: 3
+      sentCnt: 63
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:10:499 '
+      state: ready
+    zwave.ou_terrace_wall:
+      application_version: Unknown
+      averageRequestRTT: 29
+      averageResponseRTT: 42
+      capabilities:
+      - routing
+      - beaming
+      - listening
+      - zwave_plus
+      friendly_name: 'Terras: Status'
+      is_awake: true
+      is_failed: false
+      is_info_received: true
+      is_ready: true
+      is_zwave_plus: true
+      lastRequestRTT: 30
+      lastResponseRTT: 42
+      manufacturer_name: FIBARO System
+      max_baud_rate: 40000
+      neighbors:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 10
+      - 11
+      - 12
+      - 13
+      - 15
+      - 16
+      - 17
+      - 18
+      - 27
+      node_id: 14
+      node_name: FIBARO System FGD212 Dimmer 2
+      product_name: FGD212 Dimmer 2
+      query_stage: Complete
+      receivedCnt: 59
+      receivedDups: 11
+      receivedTS: '2020-08-10 15:59:16:642 '
+      receivedUnsolicited: 12
+      retries: 2
+      sentCnt: 62
+      sentFailed: 0
+      sentTS: '2020-08-10 15:59:10:578 '
+      state: ready
+  icon: mdi:home-import-outline

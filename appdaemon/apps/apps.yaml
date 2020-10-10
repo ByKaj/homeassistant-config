@@ -1,0 +1,11 @@
+replay_lights:
+  hassDir: "/config"
+  databaseType: sqlite3
+  module: replay_lights
+  class: ReplayLights
+# numberOfDaysBack: 7
+  deviceType: "light"
+  enableTag: "input_boolean.mode_vacation"
+  enableVal: "on"
+  smartControlledByDumb: ""
+  excludeList: ""

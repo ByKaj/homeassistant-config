@@ -1,0 +1,65 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: metric
+  time_zone: Europe/Amsterdam
+  internal_url: !secret url_internal
+  #external_url: !secret url_external
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# Home Connect API
+home_connect:
+  client_id: !secret homeconnect_client_id
+  client_secret: !secret homeconnect_client_secret
+
+# Sensors
+sensor:
+  # DSMR Reader
+  - platform: dsmr_reader
+
+binary_sensor:
+  - platform: tod
+    name: Night
+    after: sunset
+    before: sunrise
+
+# Weather services
+weather:
+  - platform: buienradar
+    name: Home
+
+# Virtual entities
+input_boolean:
+  mode_vacation:
+    name: Vakantie modus
+    icon: mdi:beach
+
+input_number:
+  replay_days_back:
+    name: Aantal dagen
+    icon: mdi:calendar-today
+    max: 30
+    min: 1
+
+# Frontend
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Includes
+light: !include lights.yaml
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+#panel_custom: !include panel_custom.yaml
+homekit: !include homekit.yaml
+

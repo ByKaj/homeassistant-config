@@ -1,0 +1,31 @@
+# Persons
+person.kaj:
+  entity_picture: "/local/images/person_kaj.jpg"
+person.els:
+  entity_picture: "/local/images/person_els.jpg"
+  
+# Sensors
+binary_sensor.ff_bedroom_window_left_sensor:
+  device_class: window
+binary_sensor.ff_guestroom_window_sensor:
+  device_class: window
+binary_sensor.ff_bedroom_window_right_sensor:
+  device_class: window
+binary_sensor.ff_guestroom_door_sensor:
+  device_class: door
+
+# Media players
+media_player.ff_bedroom_cast_gh:
+  device_class: speaker
+media_player.ff_bedroom_cast_tv:
+  device_class: tv
+media_player.gf_kitchen_sonos:
+  device_class: speaker
+media_player.gf_living_cast_tv:
+  device_class: tv
+media_player.gf_living_sonos:
+  device_class: speaker
+media_player.sf_office_cast_gh:
+  device_class: speaker
+media_player.sf_office_cast_tv:
+  device_class: tv

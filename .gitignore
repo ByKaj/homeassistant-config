@@ -1,0 +1,35 @@
+#
+# Home Assistant
+#
+*.db
+*.sqlite
+.storage/
+.cloud/
+deps/
+tts/
+www/images/person_*
+harmony_*.conf
+zw*.xml
+
+#
+# Sensitive data
+#
+secrets.yaml
+
+#
+# IDE's
+#
+.vscode/
+
+#
+# Logs
+#
+logs/
+*.log
+OZW_Log.txt
+
+#
+# Python
+#
+__pycache__/
+*.py[cod]

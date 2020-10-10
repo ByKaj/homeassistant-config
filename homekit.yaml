@@ -1,0 +1,192 @@
+  - name: Home Assistant Bridge
+    auto_start: false
+    port: 51827
+    filter:
+      include_entities:
+        - binary_sensor.ff_bedroom_window_left_sensor
+        - binary_sensor.ff_bedroom_window_right_sensor
+        - binary_sensor.ff_guestroom_door_sensor
+        - binary_sensor.ff_guestroom_window_sensor
+        - climate.ff_bedroom_thermostat
+        - climate.ff_guestroom_thermostat
+        - climate.ff_hobbyroom_thermostat
+        - climate.gf_hallway_valve
+        - climate.gf_kitchen_thermostat
+        - climate.gf_living_thermostat
+        - climate.sf_office_thermostat
+        - cover.ou_terrace_sunscreen_level
+        - light.ff_bathroom_lighting_level
+        - light.ff_bedroom_bed_left
+        - light.ff_bedroom_bed_right
+        - light.ff_bedroom_ceiling_level
+        - light.ff_bedroom_dressoir
+        - light.ff_guestroom_spots_level
+        - light.ff_hallway_ceiling_level
+        - light.ff_hobbyroom_ceiling_level
+        - light.ff_hobbyroom_lego_switch
+        - light.gf_hallway_ceiling_level
+        - light.gf_kitchen_hallspots_level
+        - light.gf_kitchen_table_level
+        - light.gf_kitchen_windows_level
+        - light.gf_living_ceiling_back_level
+        - light.gf_living_ceiling_front_level
+        - light.gf_living_christmastree_switch
+        - light.gf_living_couch_left
+        - light.gf_living_couch_right
+        - light.gf_living_floor
+        - light.ou_frontporch_door_level
+        - light.ou_terrace_wall_level
+        - light.sf_hallway_ceiling_level
+        - light.sf_office_cabinet
+        - light.sf_office_ceiling_level
+        - light.sf_office_chair
+        - light.sf_office_deskspot_left
+        - light.sf_office_deskspot_right
+        - light.sf_office_desk_left
+        - light.sf_office_desk_right
+        - light.sf_office_window
+        - media_player.ff_bedroom_cast_tv
+        - media_player.gf_living_cast_tv
+        - media_player.sf_office_cast_tv
+        - scene.beneden_sfeer
+        - scene.beneden_thuiskomst
+        - scene.boven_avondstand
+        - sensor.ff_hobbyroom_valve_battery
+        - sensor.gf_living_weatherstation_co2
+        - sensor.gf_living_weatherstation_humidity
+        - sensor.ou_shed_raingauge_battery_percent
+        - sensor.ou_shed_weatherstation_battery_percent
+        - sensor.ou_shed_weatherstation_humidity
+        - sensor.ou_shed_weatherstation_temperature
+        - sensor.sf_office_thermostat_battery
+    entity_config:
+      binary_sensor.ff_bedroom_window_left_sensor:
+        name: Slaapkamer Raam L
+        linked_battery_sensor: sensor.ff_bedroom_window_left_battery_level
+        low_battery_threshold: 15
+      binary_sensor.ff_bedroom_window_right_sensor:
+        name: Slaapkamer Raam R
+        linked_battery_sensor: sensor.ff_bedroom_window_right_battery_level
+        low_battery_threshold: 15
+      binary_sensor.ff_guestroom_door_sensor:
+        name: Kledingkamer Deur
+        linked_battery_sensor: sensor.ff_guestroom_door_battery_level
+        low_battery_threshold: 15
+      binary_sensor.ff_guestroom_window_sensor:
+        name: Kledingkamer Raam
+        linked_battery_sensor: sensor.ff_guestroom_window_battery_level
+        low_battery_threshold: 15
+      climate.ff_bedroom_thermostat:
+        name: Slaapkamer
+        linked_battery_sensor: sensor.ff_bedroom_thermostat_battery
+        low_battery_threshold: 15
+      climate.ff_guestroom_thermostat:
+        name: Kledingkamer
+        linked_battery_sensor: sensor.ff_guestroom_thermostat_battery
+        low_battery_threshold: 15
+      climate.ff_hobbyroom_thermostat:
+        name: Hobbykamer
+        linked_battery_sensor: sensor.ff_hobbyroom_thermostat_battery
+        low_battery_threshold: 15
+      climate.gf_hallway_valve:
+        name: Gang
+        linked_battery_sensor: sensor.gf_hallway_valve_battery
+        low_battery_threshold: 15
+      climate.gf_kitchen_thermostat:
+        name: Keuken
+        linked_battery_sensor: sensor.gf_kitchen_thermostat_battery
+        low_battery_threshold: 15
+      climate.gf_living_thermostat:
+        name: Woonkamer
+      climate.sf_office_thermostat:
+        name: Werkkamer
+        linked_battery_sensor: sensor.sf_office_thermostat_battery
+        low_battery_threshold: 15
+      cover.ou_terrace_sunscreen_level:
+        name: Zonnescherm
+      light.ff_bathroom_lighting_level:
+        name: Badkamer Verlichting
+      light.ff_bedroom_bed_left:
+        name: Slaapkamer Bed L
+      light.ff_bedroom_bed_right:
+        name: Slaapkamer Bed R
+      light.ff_bedroom_ceiling_level:
+        name: Slaapkamer Plafondlamp
+      light.ff_bedroom_dressoir:
+        name: Slaapkamer Dressoir
+      light.ff_guestroom_spots_level:
+        name: Kledingkamer Spots
+      light.ff_hallway_ceiling_level:
+        name: Overloop boven Plafondlamp
+      light.ff_hobbyroom_ceiling_level:
+        name: Hobbykamer Plafondlamp
+      light.ff_hobbyroom_lego_switch:
+        name: Hobbykamer LEGO
+      light.gf_hallway_ceiling_level:
+        name: Gang Plafondlamp
+      light.gf_kitchen_hallspots_level:
+        name: Keuken Halspots
+      light.gf_kitchen_table_level:
+        name: Keuken Tafel
+      light.gf_kitchen_windows_level:
+        name: Keuken Raamspots
+      light.gf_living_ceiling_back_level:
+        name: Woonkamer Plafondlamp A
+      light.gf_living_ceiling_front_level:
+        name: Woonkamer Plafondlamp V
+      light.gf_living_christmastree_switch:
+        name: Woonkamer Kerstboom
+      light.gf_living_couch_left:
+        name: Woonkamer Bank L
+      light.gf_living_couch_right:
+        name: Woonkamer Bank R
+      light.gf_living_floor:
+        name: Woonkamer Vloer
+      light.ou_frontporch_door_level:
+        name: Buiten Portiek
+      light.ou_terrace_wall_level:
+        name: Buiten Terras
+      light.sf_hallway_ceiling_level:
+        name: Overloop zolder Plafondlamp
+      light.sf_office_cabinet:
+        name: Werkkamer Kast
+      light.sf_office_ceiling_level:
+        name: Werkkamer Plafondlamp
+      light.sf_office_chair:
+        name: Werkkamer Stoel
+      light.sf_office_deskspot_left:
+        name: Werkkamer Spot L
+      light.sf_office_deskspot_right:
+        name: Werkkamer Spot R
+      light.sf_office_desk_left:
+        name: Werkkamer Bureau L
+      light.sf_office_desk_right:
+        name: Werkkamer Bureau R
+      light.sf_office_window:
+        name: Werkkamer Raam
+      media_player.ff_bedroom_cast_tv:
+        name: Slaapkamer TV
+      media_player.gf_living_cast_tv:
+        name: Woonkamer TV
+      media_player.sf_office_cast_tv:
+        name: Werkkamer TV
+      scene.beneden_sfeer:
+        name: Beneden Sfeer
+      scene.beneden_thuiskomst:
+        name: Beneden Thuiskomst
+      scene.boven_avondstand:
+        name: Boven Avondstand
+      sensor.ff_hobbyroom_valve_battery:
+        name: Hobbykamer Radiator
+      sensor.gf_living_weatherstation_co2:
+        name: Woonkamer CO2
+      sensor.gf_living_weatherstation_humidity:
+        name: Woonkamer Luchtvochtigheid
+      sensor.ou_shed_raingauge_battery_percent:
+        name: Buiten Regenmeter
+      sensor.ou_shed_weatherstation_battery_percent:
+        name: Buiten Weerstation
+      sensor.ou_shed_weatherstation_humidity:
+        name: Buiten Luchtvochtigheid
+      sensor.ou_shed_weatherstation_temperature:
+        name: Buiten Temperatuur

@@ -1,0 +1,127 @@
+##########
+# Light Switches
+##########
+- platform: switch
+  name: gf_living_christmastree_switch
+  entity_id: switch.gf_living_christmastree_switch
+- platform: switch
+  name: ff_hobbyroom_lego_switch
+  entity_id: switch.ff_hobbyroom_lego_switch
+
+##########
+# GF
+##########
+- platform: group
+  name: gf_hallway_lighting
+  entities:
+    - light.gf_hallway_ceiling_level
+
+- platform: group
+  name: gf_living_lighting
+  entities:
+    - light.gf_living_ceiling_back_level
+    - light.gf_living_ceiling_front_level
+    - light.gf_living_floor
+    - light.gf_living_couch_left
+    - light.gf_living_couch_right
+    - light.gf_living_christmastree_switch
+
+- platform: group
+  name: gf_kitchen_lighting
+  entities:
+    - light.gf_kitchen_hallspots_level
+    - light.gf_kitchen_table_level
+    - light.gf_kitchen_windows_level
+
+- platform: group
+  name: gf_lighting
+  entities:
+    - light.gf_hallway_lighting
+    - light.gf_living_lighting
+    - light.gf_kitchen_lighting
+
+##########
+# FF
+##########
+- platform: group
+  name: ff_hallway_lighting
+  entities:
+    - light.ff_hallway_ceiling_level
+
+- platform: group
+  name: ff_bedroom_lighting
+  entities:
+    - light.ff_bedroom_ceiling_level
+    - light.ff_bedroom_bed_left
+    - light.ff_bedroom_bed_right
+    - light.ff_bedroom_dressoir
+
+- platform: group
+  name: ff_guestroom_lighting
+  entities:
+    - light.ff_guestroom_spots_level
+
+- platform: group
+  name: ff_bathroom_lighting
+  entities:
+    - light.ff_bathroom_lighting_level
+
+- platform: group
+  name: ff_hobbyroom_lighting
+  entities:
+    - light.ff_hobbyroom_ceiling_level
+    - light.ff_hobbyroom_lego_switch
+
+- platform: group
+  name: ff_lighting
+  entities:
+    - light.ff_hallway_lighting
+    - light.ff_bedroom_lighting
+    - light.ff_guestroom_lighting
+    - light.ff_bathroom_lighting
+    - light.ff_hobbyroom_lighting
+
+##########
+# SF
+##########
+- platform: group
+  name: sf_office_lighting
+  entities:
+    - light.sf_office_cabinet
+    - light.sf_office_ceiling_level
+    - light.sf_office_chair
+    - light.sf_office_desk_left
+    - light.sf_office_desk_right
+    - light.sf_office_deskspot_left
+    - light.sf_office_deskspot_right
+    - light.sf_office_window
+
+- platform: group
+  name: sf_hallway_lighting
+  entities:
+    - light.sf_hallway_ceiling_level
+
+- platform: group
+  name: sf_lighting
+  entities:
+    - light.sf_hallway_lighting
+    - light.sf_office_lighting
+
+##########
+# OU
+##########
+- platform: group
+  name: ou_frontporch_lighting
+  entities:
+    - light.ou_frontporch_door_level
+
+- platform: group
+  name: ou_terrace_lighting
+  entities:
+    - light.ou_terrace_wall_level
+
+- platform: group
+  name: ou_lighting
+  entities:
+    - light.ou_frontporch_lighting
+    - light.ou_terrace_lighting
