@@ -88,7 +88,7 @@ Source used: [HASS Cheatsheet](https://github.com/arsaboo/homeassistant-config/b
 ### Git Pull configuration
 Configuration with auto restart of Home Assistant and auto pulling your GitHub repository for changes enabled. 
 
-> **WARNING:** Only activate this add-on when your repository holds your initial commit. Otherwise it'll wipe your configuration and you probally don't want that... 
+> **WARNING:** Only activate this add-on when your repository holds your initial commit. Otherwise it'll wipe your configuration and you probably don't want that... 
 
 The deployment key is the private key in `id_rsa` created in step 6 of the previous backup procedure. Take note of the key format.
 
