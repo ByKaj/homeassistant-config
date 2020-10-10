@@ -1,0 +1,1776 @@
+custom_header:
+  restrict_users: true
+title: Mauve St.
+views:
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - entity: scene.beneden_thuiskomst
+                name: Thuiskomst
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.beneden_thuiskomst
+                type: 'custom:button-card'
+              - icon: 'mdi:power'
+                name: Licht uit
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: light.turn_off
+                  service_data:
+                    entity_id: all
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+            type: horizontal-stack
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: huis
+        type: 'custom:stack-in-card'
+      - entity: weather.home
+        type: 'custom:weather-card'
+      - cards:
+          - aspect_ratio: '16:9'
+            entities:
+              - entity: person.els
+              - entity: person.kaj
+            geo_location_sources: []
+            hours_to_show: 0
+            type: map
+          - entities:
+              - entity: person.els
+              - entity: person.kaj
+            style: |
+              ha-card {
+              }
+              .card-header {
+                font-size: 16px;
+                font-weight: 500;
+                font-variant: small-caps;
+                padding-top: 16px;
+                line-height: 16px;
+              }
+            type: entities
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: locatie
+        type: 'custom:stack-in-card'
+      - entities:
+          - label: Huidig verbruik
+            type: section
+          - entity: sensor.dsmr_reading_electricity_currently_delivered
+            name: Electriciteit
+          - entity: sensor.dsmr_consumption_gas_currently_delivered
+            name: Gas
+          - label: Totaal verbruik (vandaag)
+            type: section
+          - entity: sensor.dsmr_day_consumption_electricity_merged
+            name: Electriciteit
+          - entity: sensor.dsmr_day_consumption_gas
+            name: Gas
+          - label: Kosten (vandaag)
+            type: section
+          - entity: sensor.dsmr_day_consumption_electricity1_cost
+            name: Electriciteit (laag)
+          - entity: sensor.dsmr_day_consumption_electricity2_cost
+            name: Electriciteit (hoog)
+          - entity: sensor.dsmr_day_consumption_gas_cost
+            name: Gas
+          - type: divider
+          - entity: sensor.dsmr_day_consumption_total_cost
+            name: Totaal
+        show_header_toggle: false
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: energie
+        type: entities
+      - entities:
+          - type: section
+          - card:
+              entity: input_boolean.mode_vacation
+            restrictions:
+              confirm: true
+            row: true
+            type: 'custom:restriction-card'
+          - entity: input_number.replay_days_back
+            type: 'custom:slider-entity-row'
+        show_header_toggle: false
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: vakantie
+        type: 'custom:hui-entities-card'
+    icon: 'mdi:home'
+    path: overzicht
+    title: Overzicht
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - entity: scene.beneden_sfeer
+                name: Sfeer
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.beneden_sfeer
+                type: 'custom:button-card'
+              - icon: 'mdi:power'
+                name: Uit
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.gf_lighting
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+            type: horizontal-stack
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: beneden
+        type: 'custom:stack-in-card'
+      - cards:
+          - cards:
+              - icon: 'mdi:yin-yang'
+                name: Ontspannen
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Woonkamer
+                    scene_name: Ontspannen
+                type: 'custom:button-card'
+              - icon: 'mdi:weather-sunny'
+                name: Gedimd
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Woonkamer
+                    scene_name: Gedimd
+                type: 'custom:button-card'
+              - icon: 'mdi:book-open-variant'
+                name: Lezen
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Woonkamer
+                    scene_name: Lezen
+                type: 'custom:button-card'
+              - icon: 'mdi:power'
+                name: Uit
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.gf_living_lighting
+                type: 'custom:button-card'
+            type: horizontal-stack
+          - entities:
+              - label: Verlichting
+                type: section
+              - entity: light.gf_living_ceiling_back_level
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.gf_living_ceiling_front_level
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.gf_living_floor
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.gf_living_couch_left
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.gf_living_couch_right
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - label: Klimaat
+                type: section
+              - entity: sensor.gf_living_weatherstation_temperature
+              - entity: sensor.gf_living_weatherstation_humidity
+              - entity: sensor.gf_living_weatherstation_co2
+              - entity: sensor.gf_living_weatherstation_noise
+              - entity: sensor.gf_living_weatherstation_pressure
+              - label: Energie
+                type: section
+              - entity: sensor.gf_living_tv_power
+                name: TV meubel
+            show_header_toggle: false
+            type: entities
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: woonkamer
+        type: 'custom:stack-in-card'
+      - entities:
+          - label: Verlichting
+            type: section
+          - entity: light.gf_kitchen_hallspots_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.gf_kitchen_windows_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: light.gf_kitchen_table_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - label: Klimaat
+            type: section
+          - entity: sensor.gf_kitchen_thermostat_temperature
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: keuken
+        type: entities
+      - entities:
+          - label: Verlichting
+            type: section
+          - entity: light.gf_hallway_ceiling_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - label: Klimaat
+            type: section
+          - entity: sensor.gf_hallway_valve_temperature
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: gang
+        type: entities
+      - control:
+          _headings: false
+          _names: false
+          preset:
+            asleep:
+              icon: 'mdi:weather-night'
+              name: Nacht
+            away:
+              icon: 'mdi:home-export-outline'
+              name: Niet thuis
+            home:
+              icon: 'mdi:home'
+              name: Thuis
+            no_frost:
+              icon: 'mdi:snowflake'
+              name: Antivries
+            vacation:
+              icon: 'mdi:beach'
+              name: Vakantie
+        entity: climate.gf_living_thermostat
+        icon: false
+        label:
+          state: Status
+          temperature: Temperatuur
+        name: woonkamer
+        step_layout: row
+        step_size: 1
+        style: |
+          ha-card {
+            --st-font-size-xl: 24px;
+            --st-font-size-title: var(--paper-font-body1_-_font-size);
+            --st-font-size-sensors: var(--paper-font-body1_-_font-size);
+            --st-spacing: 5px;
+          }
+          .sensor-heading {
+          }
+          .header__title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            font-variant: small-caps;
+            padding-top: 0px;
+            line-height: 16px;
+          }
+          header.clickable {
+            padding: 16px;
+          }
+        type: 'custom:simple-thermostat'
+      - control:
+          _headings: false
+          _names: false
+          preset:
+            asleep:
+              icon: 'mdi:weather-night'
+              name: Nacht
+            away:
+              icon: 'mdi:home-export-outline'
+              name: Niet thuis
+            home:
+              icon: 'mdi:home'
+              name: Thuis
+            no_frost:
+              icon: 'mdi:snowflake'
+              name: Antivries
+            vacation:
+              icon: 'mdi:beach'
+              name: Vakantie
+        entity: climate.gf_kitchen_thermostat
+        icon: false
+        label:
+          state: Status
+          temperature: Temperatuur
+        name: keuken
+        step_layout: row
+        step_size: 1
+        style: |
+          ha-card {
+            --st-font-size-xl: 24px;
+            --st-font-size-title: var(--paper-font-body1_-_font-size);
+            --st-font-size-sensors: var(--paper-font-body1_-_font-size);
+            --st-spacing: 5px;
+          }
+          .sensor-heading {
+          }
+          .header__title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            font-variant: small-caps;
+            padding-top: 0px;
+            line-height: 16px;
+          }
+          header.clickable {
+            padding: 16px;
+          }
+        type: 'custom:simple-thermostat'
+      - control:
+          _headings: false
+          _names: false
+          preset:
+            asleep:
+              icon: 'mdi:weather-night'
+              name: Nacht
+            away:
+              icon: 'mdi:home-export-outline'
+              name: Niet thuis
+            home:
+              icon: 'mdi:home'
+              name: Thuis
+            no_frost:
+              icon: 'mdi:snowflake'
+              name: Antivries
+            vacation:
+              icon: 'mdi:beach'
+              name: Vakantie
+        entity: climate.gf_hallway_valve
+        icon: false
+        label:
+          state: Status
+          temperature: Temperatuur
+        name: gang
+        step_layout: row
+        step_size: 1
+        style: |
+          ha-card {
+            --st-font-size-xl: 24px;
+            --st-font-size-title: var(--paper-font-body1_-_font-size);
+            --st-font-size-sensors: var(--paper-font-body1_-_font-size);
+            --st-spacing: 5px;
+          }
+          .sensor-heading {
+          }
+          .header__title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            font-variant: small-caps;
+            padding-top: 0px;
+            line-height: 16px;
+          }
+          header.clickable {
+            padding: 16px;
+          }
+        type: 'custom:simple-thermostat'
+    icon: 'mdi:home-floor-b'
+    path: gf
+    title: Begane grond
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - entity: scene.boven_avondstand
+                name: Avondstand
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: scene.boven_avondstand
+                type: 'custom:button-card'
+              - icon: 'mdi:power'
+                name: Uit
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.ff_lighting
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+            type: horizontal-stack
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: boven
+        type: 'custom:stack-in-card'
+      - cards:
+          - cards:
+              - icon: 'mdi:yin-yang'
+                name: Ontspannen
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Slaapkamer
+                    scene_name: Ontspannen
+                type: 'custom:button-card'
+              - icon: 'mdi:weather-sunny'
+                name: Gedimd
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Slaapkamer
+                    scene_name: Gedimd
+                type: 'custom:button-card'
+              - icon: 'mdi:book-open-variant'
+                name: Lezen
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Slaapkamer
+                    scene_name: Lezen
+                type: 'custom:button-card'
+              - icon: 'mdi:flower-poppy'
+                name: Lentebloesem
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Slaapkamer
+                    scene_name: Lentebloesem
+                type: 'custom:button-card'
+            type: horizontal-stack
+          - cards:
+              - icon: 'mdi:weather-sunset'
+                name: Zonsondergang
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Slaapkamer
+                    scene_name: Savanne zonsondergang
+                type: 'custom:button-card'
+              - icon: 'mdi:palm-tree'
+                name: Tropisch
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Slaapkamer
+                    scene_name: Tropische schemering
+                type: 'custom:button-card'
+              - icon: 'mdi:weather-night'
+                name: Nachtlampje
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Slaapkamer
+                    scene_name: Nachtlampje
+                type: 'custom:button-card'
+              - icon: 'mdi:power'
+                name: Uit
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.ff_bedroom_lighting
+                type: 'custom:button-card'
+            type: horizontal-stack
+          - entities:
+              - label: Verlichting
+                type: section
+              - entity: light.ff_bedroom_dressoir
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.ff_bedroom_bed_left
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.ff_bedroom_bed_right
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.ff_bedroom_ceiling_level
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - label: Klimaat
+                type: section
+              - entity: sensor.ff_bedroom_thermostat_temperature
+              - label: Contacten
+                type: section
+              - entity: binary_sensor.ff_bedroom_window_left_sensor
+              - entity: binary_sensor.ff_bedroom_window_right_sensor
+            show_header_toggle: false
+            type: entities
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: slaapkamer
+        type: 'custom:stack-in-card'
+      - entities:
+          - type: section
+          - entity: light.ff_hallway_ceiling_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: overloop
+        type: entities
+      - entities:
+          - type: section
+          - entity: light.ff_bathroom_lighting_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: badkamer
+        type: entities
+      - entities:
+          - label: Verlichting
+            type: section
+          - entity: light.ff_guestroom_spots_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - label: Klimaat
+            type: section
+          - entity: sensor.ff_guestroom_thermostat_temperature
+          - label: Contacten
+            type: section
+          - entity: binary_sensor.ff_guestroom_door_sensor
+          - entity: binary_sensor.ff_guestroom_window_sensor
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: kledingkamer
+        type: entities
+      - entities:
+          - label: Verlichting
+            type: section
+          - entity: light.ff_hobbyroom_ceiling_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - entity: switch.ff_hobbyroom_lego_switch
+          - label: Klimaat
+            type: section
+          - entity: sensor.ff_hobbyroom_thermostat_temperature
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: hobbykamer
+        type: entities
+      - control:
+          _headings: false
+          _names: false
+          preset:
+            asleep:
+              icon: 'mdi:weather-night'
+              name: Nacht
+            away:
+              icon: 'mdi:home-export-outline'
+              name: Niet thuis
+            home:
+              icon: 'mdi:home'
+              name: Thuis
+            no_frost:
+              icon: 'mdi:snowflake'
+              name: Antivries
+            vacation:
+              icon: 'mdi:beach'
+              name: Vakantie
+        entity: climate.ff_bedroom_thermostat
+        icon: false
+        label:
+          state: Status
+          temperature: Temperatuur
+        name: slaapkamer
+        step_layout: row
+        step_size: 1
+        style: |
+          ha-card {
+            --st-font-size-xl: 24px;
+            --st-font-size-title: var(--paper-font-body1_-_font-size);
+            --st-font-size-sensors: var(--paper-font-body1_-_font-size);
+            --st-spacing: 5px;
+          }
+          .sensor-heading {
+          }
+          .header__title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            font-variant: small-caps;
+            padding-top: 0px;
+            line-height: 16px;
+          }
+          header.clickable {
+            padding: 16px;
+          }
+        type: 'custom:simple-thermostat'
+      - control:
+          _headings: false
+          _names: false
+          preset:
+            asleep:
+              icon: 'mdi:weather-night'
+              name: Nacht
+            away:
+              icon: 'mdi:home-export-outline'
+              name: Niet thuis
+            home:
+              icon: 'mdi:home'
+              name: Thuis
+            no_frost:
+              icon: 'mdi:snowflake'
+              name: Antivries
+            vacation:
+              icon: 'mdi:beach'
+              name: Vakantie
+        entity: climate.ff_guestroom_thermostat
+        icon: false
+        label:
+          state: Status
+          temperature: Temperatuur
+        name: kledingkamer
+        step_layout: row
+        step_size: 1
+        style: |
+          ha-card {
+            --st-font-size-xl: 24px;
+            --st-font-size-title: var(--paper-font-body1_-_font-size);
+            --st-font-size-sensors: var(--paper-font-body1_-_font-size);
+            --st-spacing: 5px;
+          }
+          .sensor-heading {
+          }
+          .header__title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            font-variant: small-caps;
+            padding-top: 0px;
+            line-height: 16px;
+          }
+          header.clickable {
+            padding: 16px;
+          }
+        type: 'custom:simple-thermostat'
+      - control:
+          _headings: false
+          _names: false
+          preset:
+            asleep:
+              icon: 'mdi:weather-night'
+              name: Nacht
+            away:
+              icon: 'mdi:home-export-outline'
+              name: Niet thuis
+            home:
+              icon: 'mdi:home'
+              name: Thuis
+            no_frost:
+              icon: 'mdi:snowflake'
+              name: Antivries
+            vacation:
+              icon: 'mdi:beach'
+              name: Vakantie
+        entity: climate.ff_hobbyroom_thermostat
+        icon: false
+        label:
+          state: Status
+          temperature: Temperatuur
+        name: hobbykamer
+        step_layout: row
+        step_size: 1
+        style: |
+          ha-card {
+            --st-font-size-xl: 24px;
+            --st-font-size-title: var(--paper-font-body1_-_font-size);
+            --st-font-size-sensors: var(--paper-font-body1_-_font-size);
+            --st-spacing: 5px;
+          }
+          .sensor-heading {
+          }
+          .header__title {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            font-variant: small-caps;
+            padding-top: 0px;
+            line-height: 16px;
+          }
+          header.clickable {
+            padding: 16px;
+          }
+        type: 'custom:simple-thermostat'
+    icon: 'mdi:home-floor-1'
+    path: ff
+    title: Eerste verdieping
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - icon: 'mdi:power'
+                name: Uit
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.sf_lighting
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+            type: horizontal-stack
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: zolder
+        type: 'custom:stack-in-card'
+      - cards:
+          - cards:
+              - icon: 'mdi:yin-yang'
+                name: Ontspannen
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Werkkamer
+                    scene_name: Ontspannen
+                type: 'custom:button-card'
+              - icon: 'mdi:weather-sunny'
+                name: Gedimd
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Werkkamer
+                    scene_name: Gedimd
+                type: 'custom:button-card'
+              - icon: 'mdi:brightness-5'
+                name: Helder
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Werkkamer
+                    scene_name: Helder
+                type: 'custom:button-card'
+              - icon: 'mdi:flower-poppy'
+                name: Lentebloesem
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Werkkamer
+                    scene_name: Lentebloesem
+                type: 'custom:button-card'
+            type: horizontal-stack
+          - cards:
+              - icon: 'mdi:weather-sunset'
+                name: Zonsondergang
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Werkkamer
+                    scene_name: Savanne zonsondergang
+                type: 'custom:button-card'
+              - icon: 'mdi:palm-tree'
+                name: Tropisch
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Werkkamer
+                    scene_name: Tropische schemering
+                type: 'custom:button-card'
+              - icon: 'mdi:weather-night'
+                name: Nachtlampje
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: hue.hue_activate_scene
+                  service_data:
+                    group_name: Werkkamer
+                    scene_name: Nachtlampje
+                type: 'custom:button-card'
+              - icon: 'mdi:power'
+                name: Uit
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.sf_office_lighting
+                type: 'custom:button-card'
+            type: horizontal-stack
+          - entities:
+              - label: Verlichting
+                type: section
+              - entity: light.sf_office_ceiling_level
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.sf_office_desk_left
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.sf_office_deskspot_left
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.sf_office_desk_right
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.sf_office_deskspot_right
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.sf_office_chair
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.sf_office_window
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - entity: light.sf_office_cabinet
+                toggle: true
+                type: 'custom:slider-entity-row'
+              - label: Energie
+                type: section
+              - entity: sensor.sf_office_desk_power
+                name: Bureau
+              - label: Klimaat
+                type: section
+              - entity: sensor.sf_office_thermostat_temperature
+            show_header_toggle: false
+            type: entities
+          - control:
+              _headings: false
+              _names: false
+              preset:
+                asleep:
+                  icon: 'mdi:weather-night'
+                  name: Nacht
+                away:
+                  icon: 'mdi:home-export-outline'
+                  name: Niet thuis
+                home:
+                  icon: 'mdi:home'
+                  name: Thuis
+                no_frost:
+                  icon: 'mdi:snowflake'
+                  name: Antivries
+                vacation:
+                  icon: 'mdi:beach'
+                  name: Vakantie
+            entity: climate.sf_office_thermostat
+            hide:
+              temperature: true
+            label:
+              state: Status
+              temperature: Temperatuur
+            step_layout: row
+            step_size: 1
+            style: |
+              ha-card {
+                --st-font-size-xl: 24px;
+                --st-font-size-title: var(--paper-font-body1_-_font-size);
+                --st-font-size-sensors: var(--paper-font-body1_-_font-size);
+                --st-spacing: 5px;
+              }
+              .sensor-heading {
+                padding-left: 8px;
+              }
+              .header__icon {
+                width: 40px;
+                vertical-align: middle;
+                text-align: center
+              }
+              .header__title {
+                margin-left: 2px !important;
+              }
+              header.clickable {
+                padding-top: 0px;
+              }
+            type: 'custom:simple-thermostat'
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: werkkamer
+        type: 'custom:stack-in-card'
+      - entities:
+          - label: Verlichting
+            type: section
+          - entity: light.sf_hallway_ceiling_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - label: Energie
+            type: section
+          - entity: sensor.sf_hallway_washingmachine_power
+            name: Wasmachine
+          - entity: sensor.sf_hallway_dryer_power
+            name: Droger
+        show_header_toggle: false
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: overloop
+        type: entities
+      - entities:
+          - label: Status
+            type: section
+          - entity: sensor.sf_boilerroom_boiler_device_state
+          - entity: binary_sensor.sf_boilerroom_boiler_dhw_state
+          - label: Klimaat
+            type: section
+          - entity: sensor.sf_boilerroom_boiler_intended_boiler_temperature
+          - entity: sensor.sf_boilerroom_boiler_water_temperature
+          - label: Energie
+            type: section
+          - entity: sensor.sf_boilerroom_heating_power
+            name: CV installatie
+        show_header_toggle: false
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: cv
+        type: entities
+    icon: 'mdi:home-floor-2'
+    path: sf
+    title: Zolder
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - icon: 'mdi:power'
+                name: Uit
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: call-service
+                  haptic: success
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.ou_lighting
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+              - icon: 'mdi:none'
+                name: '&nbsp;'
+                show_icon: true
+                show_name: true
+                show_state: false
+                styles:
+                  icon:
+                    - color: var(--paper-item-icon-color)
+                  name:
+                    - font-size: 10px
+                    - padding: 8px
+                tap_action:
+                  action: none
+                type: 'custom:button-card'
+            type: horizontal-stack
+        mode: vertical
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: buiten
+        type: 'custom:stack-in-card'
+      - entities:
+          - type: section
+          - entity: light.ou_frontporch_door_level
+            name: Voordeur
+            toggle: true
+            type: 'custom:slider-entity-row'
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: portiek
+        type: entities
+      - entities:
+          - label: Verlichting
+            type: section
+          - entity: light.ou_terrace_wall_level
+            toggle: true
+            type: 'custom:slider-entity-row'
+          - label: Zonwering
+            type: section
+          - entity: cover.ou_terrace_sunscreen_level
+          - entity: cover.ou_terrace_sunscreen_level
+            name: » Stand
+            type: 'custom:slider-entity-row'
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: terras
+        type: entities
+      - entities:
+          - label: Klimaat
+            type: section
+          - entity: sensor.ou_shed_weatherstation_temperature
+          - entity: sensor.ou_shed_weatherstation_min_temp
+          - entity: sensor.ou_shed_weatherstation_max_temp
+          - entity: sensor.ou_shed_weatherstation_humidity
+          - entity: sensor.ou_shed_raingauge_rain
+          - entity: sensor.ou_shed_raingauge_sum_rain_1
+          - entity: sensor.ou_shed_raingauge_sum_rain_24
+          - label: Energie
+            type: section
+          - entity: sensor.ou_shed_weatherstation_battery_percent
+            name: Weerstation
+          - entity: sensor.ou_shed_raingauge_battery_percent
+            name: Regenmeter
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: schuur
+        type: entities
+      - detail: 0
+        entity: sensor.ou_shed_weatherstation_temperature
+        graph: line
+        type: sensor
+      - detail: 0
+        entity: sensor.ou_shed_weatherstation_humidity
+        graph: line
+        type: sensor
+      - entities:
+          - entity: sensor.ou_shed_raingauge_rain
+        hours_to_show: 24
+        line_color: var(--primary-color)
+        line_width: 3
+        points_per_hour: 4
+        show:
+          fill: true
+          icon: true
+          labels: true
+          legend: false
+          name: true
+          state: true
+        type: 'custom:mini-graph-card'
+    icon: 'mdi:flower'
+    path: ou
+    title: Buiten
+  - badges: []
+    cards:
+      - entities:
+          - entity: sensor.dsmr_reading_electricity_currently_delivered
+          - aggregate_func: min
+            color: var(--divider-color)
+            entity: binary_sensor.night
+            name: Nacht
+            show_line: false
+            show_points: false
+            show_state: true
+            y_axis: secondary
+        hours_to_show: 24
+        line_color: var(--primary-color)
+        line_width: 3
+        name: Electriciteit
+        points_per_hour: 4
+        show:
+          fill: true
+          icon: true
+          labels: false
+          labels_secondary: true
+          legend: false
+          name: true
+          state: true
+        state_map:
+          - label: Dag
+            value: 'off'
+          - label: Nacht
+            value: 'on'
+        type: 'custom:mini-graph-card'
+      - entities:
+          - entity: sensor.dsmr_reading_electricity_delivered_1
+            name: Elektra (laag)
+          - entity: sensor.dsmr_reading_electricity_delivered_2
+            name: Elektra (hoog)
+          - entity: sensor.dsmr_reading_extra_device_delivered
+            name: Gas
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: meterstanden
+        type: glance
+      - entities:
+          - label: Actuele metingen
+            type: section
+          - entity: sensor.dsmr_reading_phase_currently_delivered_l1
+            name: Verbruik L1
+          - entity: sensor.dsmr_reading_phase_currently_delivered_l2
+            name: Verbruik L2
+          - entity: sensor.dsmr_reading_phase_currently_delivered_l3
+            name: Verbruik L3
+          - label: Statistieken
+            type: section
+          - entity: sensor.dsmr_meter_stats_power_failure_count
+            name: Stroomstoringen
+          - entity: sensor.dsmr_meter_stats_long_power_failure_count
+            name: Lange stroomstoringen
+          - entity: sensor.dsmr_meter_stats_electricity_tariff
+            name: Tarief indicator
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: metergegevens
+        type: entities
+      - entities:
+          - type: section
+          - card:
+              entity: switch.sf_office_desk_switch
+            restrictions:
+              confirm: true
+            row: true
+            type: 'custom:restriction-card'
+          - card:
+              entity: switch.sf_boilerroom_heating_switch
+            restrictions:
+              confirm: true
+            row: true
+            type: 'custom:restriction-card'
+          - card:
+              entity: switch.sf_hallway_dryer_switch
+            restrictions:
+              confirm: true
+            row: true
+            type: 'custom:restriction-card'
+          - card:
+              entity: switch.gf_living_tv_switch
+            restrictions:
+              confirm: true
+            row: true
+            type: 'custom:restriction-card'
+          - card:
+              entity: switch.gf_kitchen_pump
+            restrictions:
+              confirm: true
+            row: true
+            type: 'custom:restriction-card'
+          - card:
+              entity: switch.sf_hallway_washingmachine_switch
+            restrictions:
+              confirm: true
+            row: true
+            type: 'custom:restriction-card'
+        show_header_toggle: false
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: schakelaars
+        type: 'custom:hui-entities-card'
+    icon: 'mdi:cog'
+    path: maintenance
+    title: Onderhoud
+    visible:
+      - user: 2f8e6bac347146388e715405a8e76390

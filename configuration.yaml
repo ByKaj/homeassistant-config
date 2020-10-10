@@ -50,7 +50,17 @@ input_number:
     max: 30
     min: 1
 
-# Frontend
+# Dashboards
+lovelace:
+  mode: storage
+  dashboards:
+    lovelace-mobile:
+      mode: yaml
+      title: Mobile YAML
+      icon: mdi:cellphone-iphone
+      show_in_sidebar: true
+      filename: dashboards/mobile.yaml
+
 frontend:
   themes: !include_dir_merge_named themes
 
