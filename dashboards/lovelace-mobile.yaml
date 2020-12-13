@@ -362,7 +362,6 @@ views:
                 type: 'custom:slider-entity-row'
               - entity: switch.gf_living_christmastree_switch
                 toggle: true
-                type: 'custom:slider-entity-row'
               - label: Klimaat
                 type: section
               - entity: sensor.gf_living_weatherstation_temperature
