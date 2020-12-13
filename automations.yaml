@@ -1,3 +1,4 @@
+# Start automations
 - alias: 'Start HomeKit when Z-Wave network is ready'
   trigger:
     - platform: event
@@ -8,3 +9,40 @@
       event_type: zwave.network_complete_some_dead
   action:
     - service: homekit.start
+
+# Seasonal/temporary automations
+- alias: Turn on Christmas tree
+  description: Turn on Christmas tree at 6:00 (when off).
+  trigger:
+  - platform: time
+    at: '06:00:00'
+  condition:
+  - condition: device
+    type: is_off
+    device_id: 4d965984d2c6471aa3b46fa7bd6830a3
+    entity_id: switch.gf_living_christmastree_switch
+    domain: switch
+  action:
+  - type: turn_on
+    device_id: 4d965984d2c6471aa3b46fa7bd6830a3
+    entity_id: switch.gf_living_christmastree_switch
+    domain: switch
+  mode: single
+
+- alias: Turn off Christmas tree
+  description: Turn off Christmas tree at 2:00 (when on).
+  trigger:
+  - platform: time
+    at: '02:00:00'
+  condition:
+  - condition: device
+    type: is_on
+    device_id: 4d965984d2c6471aa3b46fa7bd6830a3
+    entity_id: switch.gf_living_christmastree_switch
+    domain: switch
+  action:
+  - type: turn_off
+    device_id: 4d965984d2c6471aa3b46fa7bd6830a3
+    entity_id: switch.gf_living_christmastree_switch
+    domain: switch
+  mode: single
