@@ -46,3 +46,4 @@
     entity_id: switch.gf_living_christmastree_switch
     domain: switch
   mode: single
+  
