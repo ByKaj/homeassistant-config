@@ -369,8 +369,6 @@ views:
               - entity: sensor.gf_living_weatherstation_co2
               - entity: sensor.gf_living_weatherstation_noise
               - entity: sensor.gf_living_weatherstation_pressure
-              - label: Energie
-                type: section
             show_header_toggle: false
             type: entities
         mode: vertical
