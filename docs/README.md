@@ -98,16 +98,16 @@ Configuration with auto restart of Home Assistant and auto pulling your GitHub r
 
 > **WARNING:** Only activate this add-on when your repository holds your initial commit. Otherwise it'll wipe your configuration and you probably don't want that... 
 
-The deployment key is the private key in `id_rsa` created in step 6 of the previous backup procedure. Take note of the key format.
+The deployment key is the private key in `id_rsa` created in the previous backup procedure. Take note of the key format.
 
 ```yaml
 deployment_key:
   - '-----BEGIN OPENSSH PRIVATE KEY-----'
-  - b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
-  - NhAAAAAwEAAQAAAgEAs+gC1QehlpEymiGPSnhVMwZZJi2nljLlu644G2h9tE7FVn2TG0XR
+  - b3BlbnNzaC1rZXktdjEABBBABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
+  - NhAAAAAwEMAQAAAgEAs+gC1QehlpEymiGPSnhVMwZZJi2nljLlu644G2h9tE7FVn2TG0XR
   - ...
   - KvxjOuF7exeHN2WaW2zkUE9oP6aeaCfSk6XxxAq9YQVQD6BjY83zQPNaB8mk/jmkHH1C6V
-  - x/ph2cL0aoo1AAAAE2dpdGh1YkBrYWp2aXNzZXIubmwBAgMEBQYH
+  - x/ph2cL0aoo1AAAAE2dpdGh1YkBrYWp2aXNzZXIubkvBAgMEBQYH
   - '-----END OPENSSH PRIVATE KEY-----'
 deployment_key_protocol: rsa
 deployment_user: ''
