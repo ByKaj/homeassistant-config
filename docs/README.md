@@ -74,8 +74,8 @@ ssh:
     * After that commit succeeds, run: `git remote add origin git@github.com:<username>/homeassistant-config.git`.
     * Just to confirm everything is right, run `git remote -v` and you should see:
       ```bash
-      origin  git@github.com:arsaboo/homeassistant-config.git (fetch)
-      origin  git@github.com:arsaboo/homeassistant-config.git (push)
+      origin  git@github.com:<username>/homeassistant-config.git (fetch)
+      origin  git@github.com:<username>/homeassistant-config.git (push)
       ```
     * Finally, run `git push origin main`.
 
