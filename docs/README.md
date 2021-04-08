@@ -55,7 +55,7 @@ ssh:
 3. Navigate to your `config` directory. For HassOS it should be in `/root/home/config`.
 5. Run `wget https://raw.githubusercontent.com/<username>/homeassistant-config/main/.gitignore` to get the `.gitignore` file from your repo (replace the link to match your repository). You can add things to your `.gitignore` file that you do not want to be uploaded.
 6. Next, we need to add SSH keys to your GitHub account.
-    * Run `ssh-keygen -t rsa -b 4096 -C "<email address>"`. If you want to enter a passphrase, that's up to you. If you do, you'll have to enter that passphrase any time you want to update your changes to github. If you do not want a passphrase, leave it blank and just hit `Enter`.
+    * Run `ssh-keygen -t rsa -b 4096 -C "<email address>"`. If you want to enter a passphrase, that's up to you. If you do, you'll have to enter that passphrase any time you want to update your changes to GitHub. If you do not want a passphrase, leave it blank and just hit `Enter`.
     * Save the key in the default location (press `Enter` when it prompts for location).
     * When you're finished, run `ls -al ~/.ssh` to confirm that you have both `id_rsa` and `id_rsa.pub` files.
     * Go to https://github.com/settings/keys and click `New SSH key` button at top right. Title: `Home Assistant Server` (or whatever you want, really...it's just for you to know which key it is).
