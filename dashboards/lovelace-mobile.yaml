@@ -371,8 +371,6 @@ views:
               - entity: sensor.gf_living_weatherstation_pressure
               - label: Energie
                 type: section
-              - entity: sensor.gf_living_tv_power
-                name: TV meubel
             show_header_toggle: false
             type: entities
         mode: vertical
