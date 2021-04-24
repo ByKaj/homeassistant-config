@@ -402,7 +402,7 @@ views:
           - label: Energie
             type: section
           - entity: sensor.gf_kitchen_watersensor_battery_level
-            name: Watersensorß
+            name: Watersensor
           - label: Sensoren
             type: section
           - entity: binary_sensor.gf_kitchen_watersensor_water_alarm
