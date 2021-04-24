@@ -1715,6 +1715,27 @@ views:
         title: metergegevens
         type: entities
       - entities:
+          - entity: sensor.bf_basement_miner_power
+            name: Actueel verbruik
+          - entity: sensor.bf_basement_miner_energy
+            name: Totaal verbruik
+          - entity: sensor.bf_basement_miner_current
+            name: Stroom
+          - entity: sensor.bf_basement_miner_voltage
+            name: Voltage
+        style: |
+          ha-card {
+          }
+          .card-header {
+            font-size: 16px;
+            font-weight: 500;
+            font-variant: small-caps;
+            padding-top: 16px;
+            line-height: 16px;
+          }
+        title: mining rig
+        type: entities
+      - entities:
           - type: section
           - card:
               entity: switch.sf_office_desk_switch
@@ -1735,7 +1756,7 @@ views:
             row: true
             type: 'custom:restriction-card'
           - card:
-              entity: switch.gf_living_tv_switch
+              entity: switch.bf_basement_miner_switch
             restrictions:
               confirm: true
             row: true
