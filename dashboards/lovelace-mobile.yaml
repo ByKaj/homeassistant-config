@@ -402,6 +402,7 @@ views:
           - label: Energie
             type: section
           - entity: sensor.gf_kitchen_watersensor_battery_level
+            name: Watersensorß
           - label: Sensoren
             type: section
           - entity: binary_sensor.gf_kitchen_watersensor_water_alarm
@@ -1428,6 +1429,7 @@ views:
           - entity: sensor.sf_hallway_dryer_power
             name: Droger
           - entity: sensor.sf_hallway_watersensor_battery_level
+            name: Watersensor
           - label: Sensoren
             type: section
           - entity: binary_sensor.sf_hallway_watersensor_water_alarm
