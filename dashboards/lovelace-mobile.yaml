@@ -399,6 +399,13 @@ views:
           - label: Klimaat
             type: section
           - entity: sensor.gf_kitchen_thermostat_temperature
+          - label: Energie
+            type: section
+          - entity: sensor.gf_kitchen_watersensor_battery_level
+          - label: Sensoren
+            type: section
+          - entity: binary_sensor.gf_kitchen_watersensor_water_alarm
+            name: Watersensor
         style: |
           ha-card {
           }
@@ -1420,6 +1427,11 @@ views:
             name: Wasmachine
           - entity: sensor.sf_hallway_dryer_power
             name: Droger
+          - entity: sensor.sf_hallway_watersensor_battery_level
+          - label: Sensoren
+            type: section
+          - entity: binary_sensor.sf_hallway_watersensor_water_alarm
+            name: Watersensor
         show_header_toggle: false
         style: |
           ha-card {
