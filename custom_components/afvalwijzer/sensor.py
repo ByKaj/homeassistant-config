@@ -1,205 +1,158 @@
+#!/usr/bin/env python3
 """
-@ Authors     : Bram van Dartel
-@ Description : Afvalwijzer Json/Scraper Sensor - It queries mijnafvalwijzer.nl or afvalstoffendienstkalender.nl.
+Sensor component Afvalwijzer
+Author: Bram van Dartel - xirixiz
 """
 
-VERSION = '4.3.1'
-
-import asyncio
-from Afvaldienst import Afvaldienst
 from datetime import date, datetime, timedelta
 from functools import partial
-import logging
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 from homeassistant.components.sensor import PLATFORM_SCHEMA
-from homeassistant.const import CONF_NAME
 from homeassistant.helpers.entity import Entity
 from homeassistant.util import Throttle
+from requests.exceptions import HTTPError
 
-_LOGGER = logging.getLogger(__name__)
+from .const.const import (
+    _LOGGER,
+    CONF_DEFAULT_LABEL,
+    CONF_EXCLUDE_LIST,
+    CONF_ID,
+    CONF_INCLUDE_DATE_TODAY,
+    CONF_POSTAL_CODE,
+    CONF_PROVIDER,
+    CONF_STREET_NUMBER,
+    CONF_SUFFIX,
+    MIN_TIME_BETWEEN_UPDATES,
+    PARALLEL_UPDATES,
+    SCAN_INTERVAL,
+    STARTUP_MESSAGE,
+)
+from .provider.afvalwijzer import AfvalWijzer
+from .sensor_custom import AfvalwijzerCustomSensor
+from .sensor_provider import AfvalwijzerProviderSensor
 
-DEFAULT_NAME = 'afvalwijzer'
-DOMAIN = 'afvalwijzer'
-ICON = 'mdi:delete-empty'
-SENSOR_PREFIX = 'trash_'
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
+    {
+        vol.Optional(
+            CONF_PROVIDER.strip().lower(), default="mijnafvalwijzer"
+        ): cv.string,
+        vol.Required(CONF_POSTAL_CODE.strip(), default="1234AB"): cv.string,
+        vol.Required(CONF_STREET_NUMBER.strip(), default="5"): cv.string,
+        vol.Optional(CONF_SUFFIX.strip(), default=""): cv.string,
+        vol.Optional(CONF_INCLUDE_DATE_TODAY.strip(), default="false"): cv.string,
+        vol.Optional(CONF_DEFAULT_LABEL.strip(), default="Geen"): cv.string,
+        vol.Optional(CONF_ID.strip().lower(), default=""): cv.string,
+        vol.Optional(CONF_EXCLUDE_LIST.strip().lower(), default=""): cv.string,
+    }
+)
 
-CONST_PROVIDER = 'provider'
-CONST_ZIPCODE = 'zipcode'
-CONST_HOUSENUMBER = 'housenumber'
-CONST_SUFFIX = 'suffix'
-CONST_COUNT_TODAY = 'count_today'
-CONST_LABEL = 'default_label'
-
-SCAN_INTERVAL = timedelta(seconds=30)
-MIN_TIME_BETWEEN_UPDATES = timedelta(seconds=3600)
-PARALLEL_UPDATES = 1
-
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
-    vol.Optional(CONST_PROVIDER, default="mijnafvalwijzer"): cv.string,
-    vol.Required(CONST_ZIPCODE): cv.string,
-    vol.Required(CONST_HOUSENUMBER): cv.string,
-    vol.Optional(CONST_SUFFIX, default=""): cv.string,
-    vol.Optional(CONST_COUNT_TODAY, default="false"): cv.string,
-    vol.Optional(CONST_LABEL, default="Geen"): cv.string,
-})
+_LOGGER.info(STARTUP_MESSAGE)
 
 
 async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
-    """Setup the sensor platform."""
-    provider = config.get(CONST_PROVIDER)
-    zipcode = config.get(CONST_ZIPCODE)
-    housenumber = config.get(CONST_HOUSENUMBER)
-    suffix = config.get(CONST_SUFFIX)
-    count_today = config.get(CONST_COUNT_TODAY)
+    provider = config.get(CONF_PROVIDER)
+    postal_code = config.get(CONF_POSTAL_CODE)
+    street_number = config.get(CONF_STREET_NUMBER)
+    suffix = config.get(CONF_SUFFIX)
+    include_date_today = config.get(CONF_INCLUDE_DATE_TODAY)
+    default_label = config.get(CONF_DEFAULT_LABEL)
+    exclude_list = config.get(CONF_EXCLUDE_LIST)
 
     _LOGGER.debug("Afvalwijzer provider = %s", provider)
-    _LOGGER.debug("Afvalwijzer zipcode = %s", zipcode)
-    _LOGGER.debug("Afvalwijzer housenumber = %s", housenumber)
+    _LOGGER.debug("Afvalwijzer zipcode = %s", postal_code)
+    _LOGGER.debug("Afvalwijzer street_number = %s", street_number)
 
     try:
-        afvaldienst = await hass.async_add_executor_job(
-                partial(
-                    Afvaldienst,
-                    provider,
-                    zipcode,
-                    housenumber,
-                    suffix,
-                    count_today
-                )
+        afvalwijzer = await hass.async_add_executor_job(
+            partial(
+                AfvalWijzer,
+                provider,
+                postal_code,
+                street_number,
+                suffix,
+                include_date_today,
+                default_label,
+                exclude_list,
+            )
         )
     except ValueError as err:
-        _LOGGER.error("Check afvaldienst platform settings %s", err.args)
+        _LOGGER.error("Check afvalwijzer platform settings %s", err.args)
         raise
 
-    # Get trash types to create sensors from
-    trashTypesDefault = afvaldienst.trash_type_list
-    trashTypesAdditional = afvaldienst.trash_schedule_today_json + afvaldienst.trash_schedule_tomorrow_json + afvaldienst.trash_schedule_next_days_json + afvaldienst.trash_schedule_next_item_json + afvaldienst.trash_schedule_next_date_json + afvaldienst.trash_schedule_dat_json
-    for item in trashTypesAdditional:
-        trashTypesDefault.append(item['key'])
+    fetch_afvalwijzer_data = AfvalwijzerData(config)
 
-    _LOGGER.debug("Trash type list = %s", trashTypesDefault)
+    waste_types_provider = afvalwijzer.waste_types_provider
+    _LOGGER.debug("Generating waste_types_provider list = %s", waste_types_provider)
+    waste_types_custom = afvalwijzer.waste_types_custom
+    _LOGGER.debug("Generating waste_types_custom list = %s", waste_types_custom)
 
-    fetch_trash_data = (TrashSchedule(config))
+    entities = []
 
-    # Setup sensors
-    sensors = []
-    for name in trashTypesDefault:
-        sensors.append(TrashSensor(hass, name, fetch_trash_data, afvaldienst, config))
-    async_add_entities(sensors)
+    for waste_type in waste_types_provider:
+        _LOGGER.debug("Adding sensor provider: %s", waste_type)
+        entities.append(
+            AfvalwijzerProviderSensor(hass, waste_type, fetch_afvalwijzer_data, config)
+        )
+    for waste_type in waste_types_custom:
+        _LOGGER.debug("Adding sensor custom: %s", waste_type)
+        entities.append(
+            AfvalwijzerCustomSensor(hass, waste_type, fetch_afvalwijzer_data, config)
+        )
 
-    _LOGGER.debug("Sensors = %s", sensors)
-
-
-class TrashSensor(Entity):
-    """Representation of a Sensor."""
-    def __init__(self, hass, name, fetch_trash_data, afvaldienst, config):
-        """Initialize the sensor."""
-        self._hass = hass
-        self._name = name
-        self._fetch_trash_data = fetch_trash_data
-        self._afvaldienst = afvaldienst
-        self._attributes = {}
-        self._config = config
-        self._state = self._config.get(CONST_LABEL)
-
-    @property
-    def name(self):
-        """Return the name of the sensor."""
-        return SENSOR_PREFIX + self._name
-
-    @property
-    def state(self):
-        """Return the state of the sensor."""
-        return self._state
-
-    @property
-    def icon(self):
-        """Set the default sensor icon."""
-        return ICON
-
-    @property
-    def device_state_attributes(self):
-        """Return the state attributes of the sensor."""
-        return self._attributes
-
-    async def async_update(self):
-        """Fetch new state data for the sensor."""
-        await self._hass.async_add_executor_job(self._fetch_trash_data.update)
-        self._state = self._config.get(CONST_LABEL)
-
-        for item in self._fetch_trash_data.trash_schedule_default:
-            attributes = {}
-            attributes['next_pickup_in_days'] = item['days_remaining']
-            if item['key'] == self._name:
-                self._state = item['value']
-                self._attributes = attributes
-
-        for item in self._fetch_trash_data.trash_schedule_additional:
-            if item['key'] == self._name:
-                if item['value'] != 'None':
-                    self._state = item['value']
-
-        for item in self._fetch_trash_data.trash_schedule_firstwastetype:
-            if item['key'] == self._name:
-                self._state = item['value']
-
-        for item in self._fetch_trash_data.trash_schedule_firstwastedate:
-            if item['key'] == self._name:
-                self._state = item['value']
+    _LOGGER.debug("Entities appended = %s", entities)
+    async_add_entities(entities)
 
 
-class TrashSchedule(object):
-    """Fetch new state data for the sensor."""
+class AfvalwijzerData(object):
     def __init__(self, config):
-        """Fetch vars."""
-        self._config = config
+        self.config = config
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):
-        """Fetch new state data for the sensor."""
-        provider = self._config.get(CONST_PROVIDER)
-        zipcode = self._config.get(CONST_ZIPCODE)
-        housenumber = self._config.get(CONST_HOUSENUMBER)
-        suffix = self._config.get(CONST_SUFFIX)
-        count_today = self._config.get(CONST_COUNT_TODAY)
+        provider = self.config.get(CONF_PROVIDER)
+        postal_code = self.config.get(CONF_POSTAL_CODE)
+        street_number = self.config.get(CONF_STREET_NUMBER)
+        suffix = self.config.get(CONF_SUFFIX)
+        include_date_today = self.config.get(CONF_INCLUDE_DATE_TODAY)
+        default_label = self.config.get(CONF_DEFAULT_LABEL)
+        exclude_list = self.config.get(CONF_EXCLUDE_LIST)
 
         try:
-            afvaldienst = Afvaldienst(provider, zipcode, housenumber, suffix, count_today)
+            afvalwijzer = AfvalWijzer(
+                provider,
+                postal_code,
+                street_number,
+                suffix,
+                include_date_today,
+                default_label,
+                exclude_list,
+            )
         except ValueError as err:
-            _LOGGER.error("Check afvaldienst platform settings %s", err.args)
+            _LOGGER.error("Check afvalwijzer platform settings %s", err.args)
             raise
 
+        # waste data provider update - with today
         try:
-            self.trash_schedule_default = afvaldienst.trash_schedulefull_json
-            _LOGGER.debug("Data trash_schedule_default = %s", self.trash_schedule_default)
+            self.waste_data_with_today = afvalwijzer.waste_data_with_today
         except ValueError as err:
-            _LOGGER.error("Check trash_schedule_default %s", err.args)
-            self.trash_schedule_default = self._config.get(CONST_LABEL)
+            _LOGGER.error("Check waste_data_provider %s", err.args)
+            self.waste_data_with_today = self._default_label
             raise
 
+        # waste data provider update - without today
         try:
-            self.trash_schedule_additional = afvaldienst.trash_schedule_today_json + afvaldienst.trash_schedule_tomorrow_json + afvaldienst.trash_schedule_next_days_json + afvaldienst.trash_schedule_dat_json
-            _LOGGER.debug("Data trash_schedule_additional = %s", self.trash_schedule_additional)
+            self.waste_data_without_today = afvalwijzer.waste_data_without_today
         except ValueError as err:
-            _LOGGER.error("Check trash_schedule_additional %s", err.args)
-            self.trash_schedule_additional = self._config.get(CONST_LABEL)
+            _LOGGER.error("Check waste_data_provider %s", err.args)
+            self.waste_data_without_today = self._default_label
             raise
 
+        # waste data custom update
         try:
-            self.trash_schedule_firstwastetype = afvaldienst.trash_schedule_next_item_json
-            _LOGGER.debug("Data trash_schedule_firstwastetype = %s", self.trash_schedule_firstwastetype)
+            self.waste_data_custom = afvalwijzer.waste_data_custom
         except ValueError as err:
-            _LOGGER.error("Check trash_schedule_firstwastetype %s", err.args)
-            self.trash_schedule_firstwastetype = self._config.get(CONST_LABEL)
-            raise
-
-        try:
-            self.trash_schedule_firstwastedate = afvaldienst.trash_schedule_next_date_json
-            _LOGGER.debug("Data trash_schedule_firstwastedate = %s", self.trash_schedule_firstwastedate)
-        except ValueError as err:
-            _LOGGER.error("Check trash_schedule_firstwastedate %s", err.args)
-            self.trash_schedule_firstwastedate = self._config.get(CONST_LABEL)
+            _LOGGER.error("Check waste_data_custom %s", err.args)
+            self.waste_data_custom = self._default_label
             raise

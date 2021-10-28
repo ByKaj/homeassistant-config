@@ -357,6 +357,9 @@ views:
               - entity: light.gf_living_couch_left
                 toggle: true
                 type: 'custom:slider-entity-row'
+              - entity: light.gf_living_couch_corner
+                toggle: true
+                type: 'custom:slider-entity-row'
               - entity: light.gf_living_couch_right
                 toggle: true
                 type: 'custom:slider-entity-row'

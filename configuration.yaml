@@ -72,6 +72,4 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 #panel_custom: !include panel_custom.yaml
-homekit: !include homekit.yaml
-
-#EOF
+#homekit: !include homekit.yaml

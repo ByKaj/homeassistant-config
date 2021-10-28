@@ -1,12 +1,14 @@
 {
   "domain": "afvalwijzer",
   "name": "Afvalwijzer",
-  "documentation": "https://github.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer",
-  "requirements": [
-    "afvaldienst==0.7.1"
-  ],
+  "version": "2021.10.02",
+  "iot_class": "cloud_polling",
+  "documentation": "https://github.com/xirixiz/homeassistant-afvalwijzer/blob/master/README.md",
+  "issue_tracker": "https://github.com/xirixiz/homeassistant-afvalwijzer/issues",
+  "config_flow": false,
   "dependencies": [],
   "codeowners": [
     "@xirixiz"
-  ]
+  ],
+  "requirements": []
 }

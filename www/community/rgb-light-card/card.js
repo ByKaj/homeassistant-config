@@ -14,7 +14,7 @@ class RGBLightCard extends HTMLElement {
 
         this.content = document.createElement('div');
         this.content.className = 'wrapper';
-        this.content.onclick = ev => ev.stopPropagation();
+        this.content.onclick = (ev) => ev.stopPropagation();
         shadow.appendChild(this.content);
     }
 
@@ -129,7 +129,7 @@ class RGBLightCard extends HTMLElement {
             ...color,
             icon_color: undefined,
             type: undefined,
-            label: undefined
+            label: undefined,
         };
         this._hass.callService('light', 'turn_on', serviceData);
     }
@@ -143,9 +143,9 @@ class RGBLightCard extends HTMLElement {
             this._hass.states &&
             this._hass.states.hasOwnProperty(this.config.entity)
         ) {
-            const hidden = this.config['hide_when_off'] && this._hass.states[this.config.entity].state === 'off';
+            const isOff = ['off', 'unavailable'].indexOf(this._hass.states[this.config.entity].state) !== -1;
+            const hidden = this.config['hide_when_off'] && isOff;
             this.content.className = hidden ? 'wrapper hidden' : 'wrapper';
-            // this.content.classList.toggle('hidden', hidden);
         }
     }
 
@@ -188,7 +188,7 @@ class RGBLightCard extends HTMLElement {
             const cr = [[166, 209, 255], [255, 255, 255], [255, 160, 0]].slice(mireds < center ? 0 : 1); // prettier-ignore
             const tr = [154, center, 500].slice(mireds < center ? 0 : 1); // Defined here: https://git.io/JvRKR
             return `rgb(${[0, 1, 2]
-                .map(i => ((mireds - tr[0]) * (cr[1][i] - cr[0][i])) / (tr[1] - tr[0]) + cr[0][i])
+                .map((i) => ((mireds - tr[0]) * (cr[1][i] - cr[0][i])) / (tr[1] - tr[0]) + cr[0][i])
                 .map(Math.round)
                 .join(',')})`;
         }
@@ -198,7 +198,33 @@ class RGBLightCard extends HTMLElement {
         if (Array.isArray(color['hs_color']) && color['hs_color'].length === 2) {
             return `hsl(${color['hs_color'][0]},100%,${100 - color['hs_color'][1] / 2}%)`;
         }
+        if (Array.isArray(color['xy_color']) && color['xy_color'].length === 2) {
+            const rgb = this.xyToRGB(color['xy_color'][0], color['xy_color'][1], 255);
+            return `rgb(${rgb.join(',')})`;
+        }
         return '#7F848E';
+    }
+
+    // Original python code from Home Assistant: https://git.io/JV8ln
+    static xyToRGB(x, y, brightness) {
+        let Y = brightness / 255;
+        let X = (Y / y) * x;
+        let Z = (Y / y) * (1.0 - x - y);
+        let rgb = [
+            X * 1.656492 - Y * 0.354851 - Z * 0.255038,
+            -X * 0.707196 + Y * 1.655397 + Z * 0.036152,
+            X * 0.051713 - Y * 0.121364 + Z * 1.01153,
+        ];
+
+        rgb = rgb
+            .map((c) => (c <= 0.0031308 ? 12.92 * c : (1.0 + 0.055) * Math.pow(c, 1.0 / 2.4) - 0.055)) // Apply reverse gamma correction
+            .map((c) => Math.max(c, 0)); // Bring all negative components to zero
+
+        let max = Math.max(...rgb);
+
+        return rgb
+            .map((c) => (max > 1 ? c / max : c)) // If one component is greater than 1, weight components by that value
+            .map((c) => Math.floor(c * 255));
     }
 
     static getJustify(option) {
@@ -208,16 +234,54 @@ class RGBLightCard extends HTMLElement {
                 right: 'flex-end',
                 center: 'center',
                 between: 'space-between',
-                around: 'space-around'
+                around: 'space-around',
             }[option] || 'flex-start'
         );
+    }
+
+    // Default config when creating the card from the UI
+    static getStubConfig(ha) {
+        const supportedEntities = Object.values(ha.states).filter(
+            (entity) =>
+                entity.entity_id.indexOf('light.') === 0 &&
+                entity.attributes &&
+                entity.attributes.supported_color_modes &&
+                entity.attributes.supported_color_modes.find((mode) => ['hs', 'rgb', 'xy'].indexOf(mode) !== -1)
+        );
+        const entity = supportedEntities.length > 0 ? supportedEntities[0].entity_id : 'light.example_light';
+
+        return {
+            type: 'entities',
+            show_header_toggle: false,
+            entities: [
+                { entity: entity },
+                {
+                    type: 'custom:rgb-light-card',
+                    entity: entity,
+                    colors: [
+                        { rgb_color: [234, 136, 140], brightness: 255, transition: 1 },
+                        { rgb_color: [251, 180, 139], brightness: 200, transition: 1 },
+                        { rgb_color: [136, 198, 237], brightness: 150, transition: 1 },
+                        { rgb_color: [140, 231, 185], brightness: 100, transition: 1 },
+                    ],
+                },
+            ],
+        };
     }
 }
 
 customElements.define('rgb-light-card', RGBLightCard);
 
+window.customCards = window.customCards || [];
+window.customCards.push({
+    type: 'rgb-light-card',
+    name: 'RGB Light Card',
+    description: 'A custom card for RGB lights',
+    preview: true,
+});
+
 console.info(
-    '\n %c RGB Light Card %c v1.7.1 %c \n',
+    '\n %c RGB Light Card %c v1.10.0 %c \n',
     'background-color: #555;color: #fff;padding: 3px 2px 3px 3px;border-radius: 3px 0 0 3px;font-family: DejaVu Sans,Verdana,Geneva,sans-serif;text-shadow: 0 1px 0 rgba(1, 1, 1, 0.3)',
     'background-color: #bc81e0;background-image: linear-gradient(90deg, #b65cff, #11cbfa);color: #fff;padding: 3px 3px 3px 2px;border-radius: 0 3px 3px 0;font-family: DejaVu Sans,Verdana,Geneva,sans-serif;text-shadow: 0 1px 0 rgba(1, 1, 1, 0.3)',
     'background-color: transparent'
