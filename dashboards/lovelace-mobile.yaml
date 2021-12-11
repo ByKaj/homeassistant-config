@@ -363,8 +363,8 @@ views:
               - entity: light.gf_living_couch_right
                 toggle: true
                 type: 'custom:slider-entity-row'
-#              - entity: switch.gf_living_christmastree_switch
-#                toggle: true
+              - entity: light.gf_living_christmastree_twinkly
+                toggle: true
               - label: Klimaat
                 type: section
               - entity: sensor.gf_living_weatherstation_temperature
