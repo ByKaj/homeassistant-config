@@ -230,14 +230,33 @@ class AfvalWijzer(object):
 
         try:
             waste_data_provider = self._waste_data_raw
-            waste_data_provider_past_removed = list(filter(lambda item: datetime.strptime(item["date"], "%Y-%m-%d") >= date_selected, waste_data_provider))
+            waste_data_provider_past_removed = list(
+                filter(
+                    lambda item: datetime.strptime(item["date"], "%Y-%m-%d")
+                    >= date_selected,
+                    waste_data_provider,
+                )
+            )
+
             for item in range(len(waste_data_provider_past_removed)):
-                if waste_data_provider_past_removed[item]['type'] in self.exclude_list:
-                    del waste_data_provider_past_removed[item]
-                    break
-            # waste_data_provider_next_type = (min(waste_data_provider_past_removed, key=lambda item: min(item.values())))
-            # waste_data_provider_next_date = waste_data_provider_past_removed[0]['date']
-            waste_data_provider_next_date = datetime.strptime(waste_data_provider_past_removed[0]['date'], "%Y-%m-%d")
+                real_item = len(waste_data_provider_past_removed) - item - 1
+                if (
+                    waste_data_provider_past_removed[real_item]["date"]
+                    == self.default_label
+                ):
+                    del waste_data_provider_past_removed[real_item]
+
+            for item in range(len(waste_data_provider_past_removed)):
+                real_item = len(waste_data_provider_past_removed) - item - 1
+                if (
+                    waste_data_provider_past_removed[real_item]["type"]
+                    in self.exclude_list
+                ):
+                    del waste_data_provider_past_removed[real_item]
+
+            waste_data_provider_next_date = datetime.strptime(
+                waste_data_provider_past_removed[0]["date"], "%Y-%m-%d"
+            )
 
             for item in waste_data_provider_past_removed:
                 item_date = datetime.strptime(item["date"], "%Y-%m-%d")
@@ -257,7 +276,9 @@ class AfvalWijzer(object):
             waste_data_custom["next_date"] = waste_data_provider_next_date
 
             # first upcoming waste type pickup in days
-            waste_data_custom["next_in_days"] = abs((self.today_date - waste_data_provider_next_date).days)
+            waste_data_custom["next_in_days"] = abs(
+                (self.today_date - waste_data_provider_next_date).days
+            )
 
             # set value to none if no value has been found
             if "next_date" not in waste_data_custom.keys():
