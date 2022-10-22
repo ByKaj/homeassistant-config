@@ -25,6 +25,7 @@
     - light.gf_living_couch_corner
     - light.gf_living_couch_left
     - light.gf_living_couch_right
+    - light.gf_living_chair
     - light.gf_living_christmastree_switch
 
 - platform: group
