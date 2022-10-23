@@ -354,10 +354,10 @@ views:
               - entity: light.gf_living_floor
                 toggle: true
                 type: 'custom:slider-entity-row'
-              - entity: light.gf_living_couch_left
+              - entity: light.gf_living_plant
                 toggle: true
                 type: 'custom:slider-entity-row'
-              - entity: light.gf_living_couch_corner
+              - entity: light.gf_living_couch_left
                 toggle: true
                 type: 'custom:slider-entity-row'
               - entity: light.gf_living_couch_right
@@ -366,8 +366,8 @@ views:
               - entity: light.gf_living_chair
                 toggle: true
                 type: 'custom:slider-entity-row'
-              - entity: light.gf_living_christmastree_twinkly
-                toggle: true
+#              - entity: light.gf_living_christmastree_twinkly
+#                toggle: true
               - label: Klimaat
                 type: section
               - entity: sensor.gf_living_weatherstation_temperature
