@@ -41,12 +41,21 @@
       friendly_name: Plafondlamp (voor)
       supported_features: 32
       state: 'on'
-    light.gf_living_couch_corner:
+    light.gf_living_plant:
       supported_color_modes:
       - brightness
       color_mode: brightness
       brightness: 10
-      friendly_name: Hoek
+      friendly_name: Plant
+      icon: mdi:floor-lamp
+      supported_features: 41
+      state: 'on'
+    light.gf_living_floor:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 10
+      friendly_name: Vloer
       icon: mdi:floor-lamp
       supported_features: 41
       state: 'on'
@@ -102,7 +111,7 @@
       icon: mdi:floor-lamp
       supported_features: 63
       state: 'on'
-    light.gf_living_floor:
+    light.gf_living_chair:
       min_mireds: 153
       max_mireds: 500
       effect_list:
@@ -353,7 +362,7 @@
       icon: mdi:floor-lamp
       supported_features: 63
       state: 'on'
-    light.gf_living_floor:
+    light.gf_living_chair:
       min_mireds: 153
       max_mireds: 500
       effect_list:
@@ -395,12 +404,21 @@
       friendly_name: Terras
       supported_features: 32
       state: 'on'
-    light.gf_living_couch_corner:
+    light.gf_living_plant:
       supported_color_modes:
       - brightness
       color_mode: brightness
       brightness: 26
-      friendly_name: Hoek
+      friendly_name: Plant
+      icon: mdi:floor-lamp
+      supported_features: 41
+      state: 'on'
+    light.gf_living_floor:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 26
+      friendly_name: Vloer
       icon: mdi:floor-lamp
       supported_features: 41
       state: 'on'

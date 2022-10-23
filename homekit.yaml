@@ -30,9 +30,9 @@
         - light.gf_kitchen_windows_level
         - light.gf_living_ceiling_back_level
         - light.gf_living_ceiling_front_level
-        - light.gf_living_chair_level
+        - light.gf_living_chair
         - light.gf_living_christmastree_switch
-        - light.gf_living_couch_corner
+        - light.gf_living_plant
         - light.gf_living_couch_left
         - light.gf_living_couch_right
         - light.gf_living_floor
